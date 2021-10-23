@@ -1,0 +1,77 @@
+<div class="container">
+    <div class="row">
+        <div class="AddEmployeeTitleContainer">
+            <div class="addEmployeeTitleContainer">
+                <div>
+                    Add Employee Details
+                </div>
+            </div>
+            <div class="addEmployeeBtnContainer">
+                <div class="addNewEmployeeBtn" (click)="addNewEmployeeBtn">Add +</div>
+            </div>
+            
+        </div>
+        <div>
+            <div class="formWrapper">
+                <form>
+                    <div class="form-group name">
+                        <input type="text" class="form-control input" id="name" name="name" [(ngModel)]="model.name" placeholder="Enter Your Name" required>
+                        
+                    </div>
+                    <div class="form-group name">
+                        <input type="text" class="form-control input" id="phone" name="phone" required minlength="10" [(ngModel)]="model.phone" placeholder="Enter Your Phone Number">
+                    
+                    </div>
+                    <div class="form-group name">
+                        <input type="text" class="form-control input" id="email" name="email" [(ngModel)]="model.email" placeholder="Enter Your Email Id">
+                    </div>
+                    <div class="form-group name">
+                        <input type="text" class="form-control input" id="id" name="id" [(ngModel)]="model.id" placeholder="Enter Your Employee Id">
+                    </div>
+                    <div class="submitBtnContainer">
+                        <button type="submit" class="saveBtn" (click)="addEmployee()">Save</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+           <div class="tableWrapper">
+                <div class="containerTitle">
+                    <div class="oneTitle">Name</div>
+                    <div class="twoTitle">Phone</div>
+                    <div class="twoTitle">Email</div>
+                    <div class="twoTitle">ID</div>
+                    <div class="threeTitle">Action</div>
+                </div>
+                <div class="containerListItems" *ngFor="let employee of employees; let i=index"[style.background-color]="changeColorOne()">
+                    <div class="one">{{employee.name}}</div>
+                    <div class="two">{{employee.phone}}</div>
+                    <div class="two">{{employee.email}}</div>
+                    <div class="two">{{employee.id}}</div>
+                    <div class="three">
+                        <button class="btn btn-primary"(click)="editEmployee(i)">Edit </button> &nbsp; &nbsp; 
+                        <button class="btn btn-danger"(click)="deleteEmployee(i)">Delete </button>
+                    </div>                    
+                </div>               
+            </div>
+            
+            <div class="editEmployeeTitleContainer">
+                <div class="">Edit Employee</div>
+            </div>
+            <form action="">
+                <div class="form-group name">
+                    <input type="text" class="form-control" id="name" name="name" [(ngModel)]="model2.name" placeholder="Name Here">
+                </div>
+                <div class="form-group name">
+                    <input type="text" class="form-control " id="phone" name="phone" [(ngModel)]="model2.phone" placeholder="Phone Number Here">
+                </div>
+                <div class="form-group name">
+                    <input type="text" class="form-control " id="email" name="email" [(ngModel)]="model2.email" placeholder="Email Id Here">
+                </div>
+                <div class="form-group name">
+                    <input type="text" class="form-control " id="id" name="id" [(ngModel)]="model2.id" placeholder="Employee Id Here">
+                </div>
+
+               <div class="btn btn-dark" type="submit" (click)="updateEmployee()">Update</div>
+            </form>     
+    </div>    
+</div>
